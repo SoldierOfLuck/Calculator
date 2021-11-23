@@ -39,10 +39,11 @@ public class SettingsActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-// сохраним настройки
+                //передаем результат в MainActivity
                 Intent intentResult = new Intent();
                 intentResult.putExtra(MainActivity.THEME, codeStyle);
                 setResult(RESULT_OK, intentResult);
+                // сохраним настройки
                 setAppTheme(codeStyle);
                 // пересоздадим активити, чтобы тема применилась
                 recreate();
