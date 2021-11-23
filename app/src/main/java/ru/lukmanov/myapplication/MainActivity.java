@@ -7,16 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import java.text.DecimalFormat;
-
 public class MainActivity extends BaseActivity {
     private TextView text;
     private static final char ADDITION = '+';
     private static final char SUBTRACTION = '-';
     private static final char MULTIPLICATION = '*';
     private static final char DIVISION = '/';
-    private static final char PERCENT = '%';
     private DecimalFormat decimalFormat;
-    boolean flag_DOT=false;
+    boolean flag_DOT=false;  //флаг точки
     private char CURRENT_ACTION;
     private double valueOne = Double.NaN;
     private double valueTwo;
@@ -218,7 +216,7 @@ public class MainActivity extends BaseActivity {
             }
         }
     }
-
+    //обработка результата работы второй активити
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         if (requestCode != REQUEST_CODE_SETTING_ACTIVITY) {
@@ -227,9 +225,9 @@ public class MainActivity extends BaseActivity {
         }
         if (resultCode == RESULT_OK){
             int code=getIntent().getIntExtra(THEME, R.style.CalcStyleMain);
-            setAppTheme(code);
+            setAppTheme(code);   //настройки темы
         }
-        recreate();
+        recreate();   //пересоздаем с новой темой
     }
 
 }
